@@ -15,7 +15,7 @@ let transporter=nodemailer.createTransport({
 
 module.exports = {
   sendmail: async function (user, res) {
-      const { email, firstName } = user;
+      const {email} = user;
       const mailOptions = {
           from: SMTP_EMAIL,
           to: email,
@@ -28,7 +28,7 @@ module.exports = {
                       <td>
                           <h3 style="color: #0838bc; font-size: 24px; text-align: center; margin-bottom: 10px;">Helllooo</h3>
                           <hr style="border: 1px solid #ccc; margin: 20px 0;">
-                          <h4 style="font-size: 20px; color: #333;">Hi ${firstName},</h4>
+                          <h4 style="font-size: 20px; color: #333;">Hi there,</h4>
                           <p style="font-size: 16px; color: #333; margin: 20px 0;">We welcome you to out chatting platform you can enjoy chatting with others hehe.</p>
                           <p style="font-size: 16px; color: #333;">Hasta la vista, baby.</p>
                           <div style="font-size: 16px; color: #333; margin-top: 20px; text-align: center;">
@@ -44,14 +44,10 @@ module.exports = {
               transporter
                   .sendMail(mailOptions)
                   .then(() => {
-                      res.status(201).send({
-                          success: "PENDING",
-                          message: "Welcome email has been sent to your account. Check your email for further instructions.",
-                      })
+                      console.log("mail sent to the user")
                   })
                   .catch((err) => {
                       console.log(err);
-                      res.status(404).json({ message:"Something went wrong" });
                   })
           }
   }

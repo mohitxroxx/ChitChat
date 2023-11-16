@@ -12,7 +12,7 @@ module.exports.login = async (req, res, next) => {
     if (!isPasswordValid)
       return res.json({ msg: "Incorrect Username or Password", status: false })
     delete user.password
-    return res.json({ msg:"login successful",username})
+    return res.json({ msg:"welcome",username})
   } catch (ex) {
     next(ex)
   }
@@ -33,15 +33,49 @@ module.exports.register = async (req, res, next) => {
       username,
       password: hashedPassword,
     })
-    // console.log(req.body)
+    console.log(req.body)
     delete user.password
-    // await sendmail.sendmail(user, res)
-    return res.json({ msg:"registered successfully",username})
+    await sendmail.sendmail(user, res)
+    return res.json({ msg: "Registered successfully" })
   } catch (ex) {
     next(ex) 
   }
 }
  
+module.exports.getAllUsers = async (req, res, next) => {
+  try {
+    const users = await User.find({ _id: { $ne: req.params.id } }).select([
+      "email",
+      "username",
+      "avatarImage",
+      "_id",
+    ])
+    return res.json(users)
+  } catch (ex) {
+    next(ex)
+  }
+}
+
+module.exports.setAvatar = async (req, res, next) => {
+  try {
+    const userId = req.params.id
+    const avatarImage = req.body.image
+    const userData = await User.findByIdAndUpdate(
+      userId,
+      {
+        isAvatarImageSet: true,
+        avatarImage,
+      },
+      { new: true }
+    )
+    return res.json({
+      isSet: userData.isAvatarImageSet,
+      image: userData.avatarImage,
+    })
+  } catch (ex) {
+    next(ex)
+  }
+}
 
 module.exports.logOut = (req, res, next) => {
   try {
