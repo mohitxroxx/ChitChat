@@ -1,6 +1,3 @@
-const express=require('express')
-const router=express.Router()
-
 const {
   login,
   register,
@@ -8,6 +5,8 @@ const {
   setAvatar,
   logOut,
 } = require("../controllers/user");
+const express=require('express')
+const router=express.Router()
 
 
 router.post("/login", login);

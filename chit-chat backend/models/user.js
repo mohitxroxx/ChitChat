@@ -1,4 +1,4 @@
-const mongoose=require('mongoose')
+const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -28,6 +28,4 @@ const userSchema = new mongoose.Schema({
     default: "",
   },
 })
-const users = mongoose.model("Chit-Chat", userSchema)
-
-module.exports=users
+module.exports = mongoose.model("Users", userSchema)
