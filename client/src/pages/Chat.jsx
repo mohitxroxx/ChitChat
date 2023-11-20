@@ -74,6 +74,7 @@ const Container = styled.div`
     height: 85vh;
     width: 85vw;
     background-color: #00000088;
+    backdrop-filter: blur(100px);
     display: grid;
     grid-template-columns: 25% 75%;
     @media screen and (min-width: 720px) and (max-width: 1080px) {

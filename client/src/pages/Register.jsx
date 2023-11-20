@@ -190,7 +190,7 @@ const FormContainer = styled.div`
     color: white;
     text-transform: uppercase;
     a {
-      // color: #4e0eff;
+      color: #4e0eff;
       text-decoration: none;
       font-weight: bold;
     }

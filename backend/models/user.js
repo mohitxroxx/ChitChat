@@ -28,4 +28,4 @@ const userSchema = new mongoose.Schema({
     default: "",
   },
 })
-module.exports = mongoose.model("Users", userSchema)
+module.exports = mongoose.model("User-ChitChat", userSchema)
