@@ -3,7 +3,7 @@
 The webapp consists of login/signup and chatting page with each user with unique usernames and data being stored in mongoDb.
 Upon registering the user gets the welocome mail and is good to chat with others.
 <br><br>
-To start the webapp simply click on this link -> https://chit-chat-mocha.vercel.app/
+To start the webapp simply click on this link -> https://chit-chat-mohit.vercel.app/
 <br><br>
 To debug/run it on your system, clone the repository and follow these steps to run the webapp
 step 1- open terminal and type yarn in the directory
