@@ -6,7 +6,7 @@ const auth = require("./routes/auth");
 const msg = require("./routes/msg");
 const connectDB = require('./config/db')
 dotenv.config({path:'./config/.env'})
-const axios = require('axios')
+// const axios = require('axios')
 connectDB()
 
 const app=express()
