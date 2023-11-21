@@ -1,4 +1,4 @@
-export const host = "https://chit-chat-mohit.vercel.app/";
+export const host = "https://chit-chat-8efm.onrender.com";
 export const loginRoute = `${host}/api/auth/login`;
 export const registerRoute = `${host}/api/auth/register`;
 export const logoutRoute = `${host}/api/auth/logout`;
