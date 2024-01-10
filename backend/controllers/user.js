@@ -12,7 +12,7 @@ module.exports.login = async (req, res, next) => {
     if (!isPasswordValid)
       return res.json({ msg: "Incorrect Username or Password", status: false })
     delete user.password
-    return res.json({ status: true, user })
+    return res.json({ msg: "Authentication approved, Welcome to the site", status: true })
   } catch (ex) {
     next(ex)
   }
