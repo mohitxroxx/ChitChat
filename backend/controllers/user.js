@@ -34,8 +34,8 @@ module.exports.register = async (req, res, next) => {
       password: hashedPassword,
     })
     delete user.password
-    await sendmail.sendmail(user)
-    return res.json({ status: true, user })
+    // await sendmail.sendmail(user)
+    return res.json({ msg: "Registered successfully", status: true })
   } catch (ex) {
     next(ex)
   }
