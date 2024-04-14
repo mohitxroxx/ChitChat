@@ -74,7 +74,7 @@ const PORT = app.listen(process.env.PORT, () =>
 
 const io = socket(PORT, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
   },
 })
